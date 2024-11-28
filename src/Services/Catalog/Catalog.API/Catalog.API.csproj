@@ -18,8 +18,6 @@
 
   <ItemGroup>
     <Folder Include="Products\DeleteProduct\" />
-    <Folder Include="Products\GetProductByCustomer\" />
-    <Folder Include="Products\GetProductByName\" />
     <Folder Include="Products\UpdateProduct\" />
   </ItemGroup>
 
