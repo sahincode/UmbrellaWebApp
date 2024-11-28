@@ -3,7 +3,7 @@ using Marten.Pagination;
 
 namespace Catalog.API.Products.GetProducts
 {
-    public record GetProductsQuery( int ? PageNumber =1 , int PageSize =2):IQuery<GetProductsResult>;
+    public record GetProductsQuery(int? PageNumber = 1, int? PageSize = 2) : IQuery<GetProductsResult>;
     public record GetProductsResult(IEnumerable<Product> Products);
     internal class GetProductsHandler(IDocumentSession session, ILogger<GetProductsHandler> logger) : IQueryHandler<GetProductsQuery, GetProductsResult>
     {
@@ -14,3 +14,4 @@ namespace Catalog.API.Products.GetProducts
             return new GetProductsResult(products);
         }
     }
+}
