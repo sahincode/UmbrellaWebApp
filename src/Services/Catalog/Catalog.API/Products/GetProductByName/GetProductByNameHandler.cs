@@ -8,7 +8,7 @@ namespace Catalog.API.Products.GetProductByName
     public record  GetProductByNameQuery(string Name):IQuery<GetProductByNameResult>;
     public record GetProductByNameResult(Product Product);
 
-    public class GetProductByNameQueryHandler(IDocumentSession session, ILogger<GetProductByNameQueryHandler> logger) : IQueryHandler<GetProductByNameQuery, GetProductByNameResult>
+    public class GetProductByNameQueryHandler(IDocumentSession session, ILogger<GetProductByNameQueryHandler > logger) : IQueryHandler<GetProductByNameQuery, GetProductByNameResult>
     {
         public async  Task<GetProductByNameResult> Handle(GetProductByNameQuery query, CancellationToken cancellationToken)
         {

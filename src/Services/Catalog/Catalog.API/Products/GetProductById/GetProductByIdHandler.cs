@@ -1,5 +1,4 @@
 ﻿
-using Catalog.API.Exceptions;
 
 namespace Catalog.API.Products.GetProductById
 {
@@ -10,7 +9,7 @@ namespace Catalog.API.Products.GetProductById
         public async Task<GetProductByIdResult> Handle(GetProductByIdQuery query, CancellationToken cancellationToken)
         {
             logger.LogInformation("GetProductByIdQueryHandler.Handler ic called by {@query}", query);
-            var product = await session.LoadAsync<GetProductByIdResult>(query.Id, cancellationToken);
+            var product = await session.LoadAsync<Product>(query.Id, cancellationToken);
             if(product is null)
             {
                 throw new ProductNotFoundException(query.Id);
@@ -18,4 +17,5 @@ namespace Catalog.API.Products.GetProductById
             return new GetProductByIdResult(product);
         }
     }
-}
+}  
+ 

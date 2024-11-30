@@ -1,4 +1,6 @@
 ﻿
+using Catalog.API.Products.GetProducts;
+
 namespace Catalog.API.Products.GetProductById
 {
      public record GetProductByIdRequest(Guid Id);
@@ -7,10 +9,10 @@ namespace Catalog.API.Products.GetProductById
     {
         public void AddRoutes(IEndpointRouteBuilder app)
         {
-            app.MapGet("product/{Id}", async (Guid Id, ISender sender) =>
+            app.MapGet("/products/GetById", async ([AsParameters] GetProductByIdRequest request, ISender sender) =>
             {
-                var result = await sender.Send(new GetProductByIdQuery(Id));
-                var respone = result.Adapt<GetProductByIdRequest>();
+                var result = await sender.Send(new GetProductByIdQuery(request.Id));
+                var respone = result.Adapt<GetProductByIdResponse>();
                 return Results.Ok(respone);
             }).WithName("GetProductById")
             .Produces<GetProductByIdResponse>(StatusCodes.Status200OK)
