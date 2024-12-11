@@ -1,0 +1,10 @@
+﻿.menu-items.active{
+    right:0;
+    visibility:hidden;
+
+
+}
+.menu-item.active{
+    right:0;
+    visibility:hidden;
+}
